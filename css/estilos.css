@@ -10,3 +10,27 @@ body {
 h1 {
 	font-family: "Emulogic";
 }
+
+#controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    background-color: #ffcc00;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #ff9900;
+}
