@@ -3,34 +3,63 @@ window.onload = function()
 	var canvas = document.getElementById("miCanvas");
 	var context = canvas.getContext("2d");
 	
-	/*
-	document.onkeydown = function(e) { keys[e.which] = true; }
-	document.onkeyup = function(e) { keys[e.which] = false; }
-	*/
+	var keys = {}; // Asegurar que existe el objeto
 
-	// Touch controls mobile
-	var leftButton = document.getElementById("left");
-	var rightButton = document.getElementById("right");
-	var jumpButton = document.getElementById("jump");
+	console.log("Page loaded!");
 
-	leftButton.addEventListener("touchstart", () => keys.left = true);
-	leftButton.addEventListener("touchend", () => keys.left = false);
+    var leftButton = document.getElementById("left");
+    var rightButton = document.getElementById("right");
+    var jumpButton = document.getElementById("jump");
 
-	rightButton.addEventListener("touchstart", () => keys.right = true);
-	rightButton.addEventListener("touchend", () => keys.right = false);
+    console.log("Left Button:", leftButton);
+    console.log("Right Button:", rightButton);
+    console.log("Jump Button:", jumpButton);
 
-	jumpButton.addEventListener("touchstart", () => keys.jump = true);
-	jumpButton.addEventListener("touchend", () => keys.jump = false);
+    var KEY_LEFT = 37;  // Código de la flecha izquierda
+    var KEY_RIGHT = 39; // Código de la flecha derecha
+    var KEY_JUMP = 32;  // Código de la barra espaciadora
 
+    // Si los botones existen, agregar eventos táctiles
+    if (leftButton) {
+        leftButton.addEventListener("pointerdown", () => {
+            keys[KEY_LEFT] = true;
+            console.log("Left PRESSED", keys);
+        });
+        leftButton.addEventListener("pointerup", () => {
+            keys[KEY_LEFT] = false;
+            console.log("Left RELEASED", keys);
+        });
+    }
 
-	leftButton.addEventListener("touchstart", () => {
-		console.log("Left button pressed");
-		keys.left = true;
-	});
-	leftButton.addEventListener("touchend", () => {
-		console.log("Left button released");
-		keys.left = false;
-	});
+    if (rightButton) {
+        rightButton.addEventListener("pointerdown", () => {
+            keys[KEY_RIGHT] = true;
+            console.log("Right PRESSED", keys);
+        });
+        rightButton.addEventListener("pointerup", () => {
+            keys[KEY_RIGHT] = false;
+            console.log("Right RELEASED", keys);
+        });
+    }
+
+    if (jumpButton) {
+        jumpButton.addEventListener("pointerdown", () => {
+            keys[KEY_JUMP] = true;
+            console.log("Jump PRESSED", keys);
+        });
+        jumpButton.addEventListener("pointerup", () => {
+            keys[KEY_JUMP] = false;
+            console.log("Jump RELEASED", keys);
+        });
+    }
+
+    // Mantener los eventos de teclado para compatibilidad con PC
+    document.onkeydown = function(e) {
+        keys[e.which] = true;
+    };
+    document.onkeyup = function(e) {
+        keys[e.which] = false;
+    };
 	
 
 	//Constantes del Juego
