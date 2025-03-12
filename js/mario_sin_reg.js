@@ -23,6 +23,16 @@ window.onload = function()
 	jumpButton.addEventListener("touchend", () => keys.jump = false);
 
 
+	leftButton.addEventListener("touchstart", () => {
+		console.log("Left button pressed");
+		keys.left = true;
+	});
+	leftButton.addEventListener("touchend", () => {
+		console.log("Left button released");
+		keys.left = false;
+	});
+	
+
 	//Constantes del Juego
 	const colorLetras = "#ffffff";
 	const TILE_ASTA = 140;
